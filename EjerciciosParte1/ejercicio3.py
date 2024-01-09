@@ -22,8 +22,11 @@ class NumOculto(Thread):
     def run(self):
         while True:
             numAleatorio = random.randint(0,100)
-            if NumOculto.numAcertado:
-                print("Ya se ha acertado el número")
-            elif numAleatorio == NumOculto.numAdivinar:
-                print("He acertado el numero. Soy", self.name)
+            if numAleatorio == NumOculto.numAdivinar:
+                print("He acertado, soy el hilo", self.name)
                 NumOculto.numAcertado = True
+                break
+            elif NumOculto.numAcertado == True:
+                print("Ya he acertado")
+                
+                
