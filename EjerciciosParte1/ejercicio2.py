@@ -5,3 +5,16 @@
 
 # Observa cómo la concurrencia puede afectar el resultado final.
 
+from threading import Thread
+
+class Contador(Thread):
+    contador = 0
+
+    def __init__(self, nombre):
+        Thread.__init__(self, name = nombre)
+    
+    def run(self):
+        # Contador.contador es una variable estática comun entre los objetos
+        while Contador.contador < 1000:
+            Contador.contador = Contador.contador + 1
+            print(Contador.contador)
