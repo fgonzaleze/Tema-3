@@ -17,4 +17,4 @@ class Cajero(Thread):
         print("El hilo", self.name, "está en caja")
         time.sleep(random.randint(1,10))
         print("El hilo", self.name, "ya ha pagado")
-        Cajero.semaforo.release()
+        Cajero.semaforo.release

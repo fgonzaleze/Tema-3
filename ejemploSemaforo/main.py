@@ -1,5 +1,5 @@
-from ejemploSemaforo.ejemploSemaforo import Cajero
 
+from ejemploSemaforo.ejemploSemaforo import Cajero
 
 if __name__ == "__main__":
     lista = []
