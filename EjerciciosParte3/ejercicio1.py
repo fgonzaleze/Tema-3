@@ -2,23 +2,24 @@
 # Una vez están todos colocados, se comienza una cuenta atrás desde 3. Una vez se dé el pistoletazo de salida entonces saldrán todos. 
 # Impleméntalo con 10 hilos e intenta calcular cuánto tiempo tarda cada uno en terminar la carrera.
 
-import random
-from threading import Thread, Timer
+import threading
 import time
+import random
 
-
-class Carrera(Thread):
-
-    
-    def __init__(self, nombre):
-        Thread.__init__(self)
+class Corredor(threading.Thread):
+    def __init__(self, nombre, salida):
+        threading.Thread.__init__(self)
         self.nombre = nombre
+        self.salida = salida
 
     def run(self):
-        temporizador = Timer(3, function)
-        print("El cliente", self.name, "está esperando en la carnicería")
-        Carrera.semaforo.acquire()
-        print("El cliente", self.name, "está siendo atendido en la carnicería")
-        time.sleep(random.randint(1,10))
-        print("El cliente", self.name, "ha terminado en la carnicería")
-        
+        print(f"{self.nombre} está en la línea de salida")
+        # Esperamos a que esten listos
+        self.salida.wait()
+        print("Sale el corredor", self.nombre)
+        inicio = time.time()
+
+        # La carrera es un tiempito aleatorio
+        time.sleep(random.uniform(3, 10))
+        self.tiempo = time.time() - inicio
+        print(f"{self.nombre} ha terminado la carrera en {self.tiempo:.2f} segundos.")
