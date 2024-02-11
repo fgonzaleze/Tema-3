@@ -1,8 +1,7 @@
-
-from ejercicio7Productor import *
-from ejercicio7Consumidor import *
 from queue import Queue
 from threading import Condition
+from ejercicio7Consumidor import Consumidor
+from ejercicio7Productor import Productor
 
 
 if __name__ == "__main__":
